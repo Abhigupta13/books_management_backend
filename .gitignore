@@ -1,2 +1,2 @@
-.env
+# .env     disable for sharing
 node_modules
