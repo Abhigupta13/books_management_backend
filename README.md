@@ -84,11 +84,16 @@ That's it! Your application should now be running on `http://localhost:3000`.
    - **Method:** GET
    - **URL:** `http://localhost:3000/books/`
 
-6. **Get Book by ID**
+6. **Get My Books**
+   - **Method:** GET
+   - **URL:** `http://localhost:3000/books/mybooks`
+   - **Headers:** `Authorization: Bearer <token>`
+
+7. **Get Book by ID**
    - **Method:** GET
    - **URL:** `http://localhost:3000/books/:id`
 
-7. **Update a Book**
+8. **Update a Book**
    - **Method:** PUT
    - **URL:** `http://localhost:3000/books/update/:id`
    - **Headers:** `Authorization: Bearer <token>`
@@ -102,7 +107,7 @@ That's it! Your application should now be running on `http://localhost:3000`.
      }
      ```
 
-8. **Delete a Book**
+9. **Delete a Book**
    - **Method:** DELETE
    - **URL:** `http://localhost:3000/books/:id`
    - **Headers:** `Authorization: Bearer <token>`

@@ -59,11 +59,22 @@ const createBooksFromCSV = async (req, res) => {
 };
 
 
-const getBooks = async (req, res) => {
+const getAllBooks = async (req, res) => {
     const books = await Book.findAll();
     res.json(books);
 };
-
+const getMyBooks = async (req, res) => {
+    try {
+        let books;
+        if (req.user.role === 'seller') {
+            books = await Book.findAll({where: { SellerId: req.user.id }});
+            res.status(200).json(books);
+        }
+        else res.status(404).json({ error: 'You are not a Seller' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 const getBookById = async (req, res) => {
     const book = await Book.findByPk(req.params.id);
@@ -98,7 +109,8 @@ const deleteBook = async (req, res) => {
 module.exports = { 
     createBook, 
     createBooksFromCSV, 
-    getBooks, 
+    getAllBooks,
+    getMyBooks, 
     getBookById, 
     updateBook, 
     deleteBook 
