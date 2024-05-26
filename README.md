@@ -1,4 +1,39 @@
-Sure, here's the list of APIs formatted for a README file:
+### Setup Instructions
+
+1. **Clone the Repository**
+
+   ```sh
+   git clone https://github.com/Abhigupta13/books_management_backend.git
+   ```
+
+2. **Navigate to the Project Directory**
+
+   ```sh
+   cd books_management_backend
+   ```
+
+3. **Install Dependencies**
+
+   ```sh
+   npm install
+   ```
+
+4. **Change DB config**
+   `from src/config/config.json`
+
+5. **Run Migrations**
+
+   ```sh
+   npx sequelize db:migrate
+   ```
+
+6. **Start the Application**
+
+   ```sh
+   npm start
+   ```
+
+That's it! Your application should now be running on `http://localhost:3000`.
 
 ### API Endpoints
 
@@ -39,7 +74,7 @@ Sure, here's the list of APIs formatted for a README file:
      }
      ```
 
-4. **Upload Books via CSV**
+4. ***Upload Books via CSV***
    - **Method:** POST
    - **URL:** `http://localhost:3000/books/upload`
    - **Headers:** `Authorization: Bearer <token>`
