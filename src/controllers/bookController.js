@@ -5,7 +5,9 @@ const path = require('path');
 
 const createBook = async (req, res) => {
     const { title, author, price, publishedDate } = req.body;
+    
     try {
+        if( req.user.role!=="seller") res.status(400).json({message:"User is not authorized to create a book"});
         const book = await Book.create({
             title,
             author,
@@ -21,10 +23,10 @@ const createBook = async (req, res) => {
 
 
 const createBooksFromCSV = async (req, res) => {
+    console.log(req.file);
     if (!req.file) {
         return res.status(400).json({ error: 'No file uploaded' });
     }
-
     const results = [];
     const filePath = path.resolve(req.file.path);
 
@@ -87,10 +89,10 @@ const updateBook = async (req, res) => {
 const deleteBook = async (req, res) => {
     const book = await Book.findByPk(req.params.id);
     if (!book) return res.status(404).json({ error: 'Book not found' });
-    if (book.SellerId !== req.user.id) return res.status(403).json({ error: 'Not authorized' });
+    if (book.SellerId !== req.user.id && req.user.role!=="seller") return res.status(403).json({ error: 'Not authorized' });
 
     await book.destroy();
-    res.status(204).send();
+    res.status(204).json({message:"Book deleted"});
 };
 
 module.exports = { 
