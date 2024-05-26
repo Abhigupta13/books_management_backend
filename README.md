@@ -45,7 +45,8 @@ That's it! Your application should now be running on `http://localhost:3000`.
      {
        "name": "John Doe",
        "email": "john@example.com",
-       "password": "password123"
+       "password": "password123",
+       "role" : "user" or "seller"
      }
      ```
 
@@ -56,7 +57,8 @@ That's it! Your application should now be running on `http://localhost:3000`.
      ```json
      {
        "email": "john@example.com",
-       "password": "password123"
+       "password": "password123",
+       "role" : "user" or "seller"
      }
      ```
 
