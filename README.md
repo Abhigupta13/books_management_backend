@@ -107,4 +107,3 @@ That's it! Your application should now be running on `http://localhost:3000`.
    - **URL:** `http://localhost:3000/books/:id`
    - **Headers:** `Authorization: Bearer <token>`
 
-Copy and paste the above section into your README file to provide a clear and styled documentation for your API endpoints.
